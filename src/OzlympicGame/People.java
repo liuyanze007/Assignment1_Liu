@@ -1,10 +1,13 @@
 package OzlympicGame;
 
+import java.util.Collections;
+import java.util.List;
+
 public abstract class People {
 	protected String ID;
 	protected String name;
-	private int age;
-	private String state;
+	protected int age;
+	protected String state;
 
 	public People(String ID, String name, int age, String state){
 		this.ID=ID;
@@ -172,8 +175,15 @@ class officials extends People{
 
 	public officials(String ID, String name, int age, String state) {
 		super(ID, name, age, state);
+		this.ID = ID;
+		this.name = name;
+		this.age = age;
+		this.state = state;
 		// TODO Auto-generated constructor stub
 	}
 	
+	public void summarise(){
+
+	}
 	
 }
