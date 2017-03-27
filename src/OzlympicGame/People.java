@@ -83,7 +83,7 @@ abstract class athletes extends People {
 	
 }
 
-class swimmers extends athletes{
+class swimmers extends athletes implements Swim{
 	public swimmers(String ID, String name, int age, String state) {
 		super(ID, name, age, state);
 		// TODO Auto-generated constructor stub
@@ -102,7 +102,7 @@ class swimmers extends athletes{
 
 }
 
-class bicyclist extends athletes{
+class bicyclist extends athletes implements Cycle{
 	public bicyclist(String ID, String name, int age, String state) {
 		super(ID, name, age, state);
 		// TODO Auto-generated constructor stub
@@ -110,16 +110,16 @@ class bicyclist extends athletes{
 	public void compete(int type) {
 		
 		 time=(int) (500+Math.random()*300);
-		 cycly();
+		 cycling();
 	}
 	
-   public void cycly(){
+   public void cycling(){
    	System.out.println("Athlete"+ID+" "+name+" cycling  time="+time);
    }
    
 }
 
-class runner extends athletes{
+class runner extends athletes implements Run{
 	public runner(String ID, String name, int age, String state) {
 		super(ID, name, age, state);
 		// TODO Auto-generated constructor stub
