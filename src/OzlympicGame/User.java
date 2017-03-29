@@ -26,7 +26,7 @@ public class User {
 	 */
 	public void check(Game g){
 		if(this.g==g){
-			if(g.getAthletes().get(rank).getId().equals(predictathleteID)){
+			if(g.getAthletes().get(rank).getID().equals(predictathleteID)){
 				System.out.println("predict success");
 			}
 			else{

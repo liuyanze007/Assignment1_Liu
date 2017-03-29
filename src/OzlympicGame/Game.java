@@ -6,7 +6,7 @@ import java.util.List;
 public abstract class Game {
 	protected int type;
 	private String GID;
-	private officials offical=null;
+	private Officials offical=null;
 	private List<Athletes> athletes;// participants
 	
 	public abstract void show();
@@ -31,11 +31,20 @@ public abstract class Game {
 		this.type = type;
 	}
 
-	public officials getOffical() {
+	public Officials getOffical() {
 		return offical;
 	}
-	public void setOffical(officials offical) {
+	public void setOffical(Officials offical) {
 		this.offical = offical;
+	}
+	
+	public void setAthletes(List<Athletes> athletes) {
+		this.athletes = athletes;
+	}
+
+	public List<Athletes> getAthletes() {
+		// TODO Auto-generated method stub
+		return athletes;
 	}
 
 

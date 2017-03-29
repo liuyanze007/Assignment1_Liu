@@ -217,19 +217,5 @@ class superAthletes extends Athletes implements Swim,Run,Cycle{
 	}
 }
 
-class officials extends People{
 
-	public officials(String ID, String name, int age, String state) {
-		super(ID, name, age, state);
-		this.ID = ID;
-		this.name = name;
-		this.age = age;
-		this.state = state;
-		// TODO Auto-generated constructor stub
-	}
 	
-	public void summarise(){
-
-	}
-	
-}
