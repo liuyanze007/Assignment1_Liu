@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class OzlympicGameSystem {
+public class Ozlympic {
 	private List<Game> games;//all games
 	private List<Athletes> allAthletes;//all athletes
 	private Scanner sc;
 	private int whichGame;//the game selected
 	private User user; //the user that predict the game
 
-	public OzlympicGameSystem(Scanner sc){
+	public Ozlympic(Scanner sc){
 		games=new ArrayList<Game>();
 		allAthletes=new ArrayList<Athletes>();
 		this.sc=sc;
@@ -37,7 +37,7 @@ public class OzlympicGameSystem {
 	
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
-		OzlympicGameSystem op=new OzlympicGameSystem(sc);
+		Ozlympic op=new Ozlympic(sc);
 		op.readFile("input.txt");
 		int cmd=0;
 		while(true){
@@ -61,12 +61,16 @@ public class OzlympicGameSystem {
 			else if(cmd==6){
 				return;
 			}
+			else{
+				System.out.println("Please enter a correct option.\n");
+			}
 		}
 		
 }
 
 	private void displayAllAthlete() {
 		// TODO Auto-generated method stub
+		
 		
 		
 	}
@@ -88,7 +92,21 @@ public class OzlympicGameSystem {
 
 	private void selectGame() {
 		// TODO Auto-generated method stub
+		for(int i=0;i<games.size();i++){
+			  System.out.println((i+1)+". "+games.get(i).getGID());
+		}
+		System.out.print("Enter an option:");
 		
+		while(true){
+			whichGame=sc.nextInt();
+			if(whichGame>=1&&whichGame<=games.size()){
+				  whichGame-=1;
+				  break;
+			}
+			else{
+				System.out.println("Invalid input");
+			}
+		}
 	}
 
 	private void readFile(String string) {
