@@ -46,6 +46,48 @@ public abstract class Game {
 		// TODO Auto-generated method stub
 		return athletes;
 	}
-
-
 }
+	
+	
+class Running extends Game{
+		
+		public Running(String ID) {
+			super(ID);
+			type=1;
+		}
+
+		@Override
+		public void show() {
+			System.out.println("running");
+			
+		}
+	}
+	
+class Swimming extends Game{
+
+		public Swimming(String ID) {
+			super(ID);
+			type=2;
+		}
+
+		@Override
+		public void show() {
+			System.out.println("swimming");
+			
+		}
+
+	}
+	
+class Cycling extends Game{
+		public Cycling(String ID) {
+			super(ID);
+			type=3;
+		}
+
+		@Override
+		public void show() {
+			System.out.println("cycling");
+			
+		}
+	}
+

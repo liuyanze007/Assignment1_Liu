@@ -1,5 +1,8 @@
 package OzlympicGame;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -109,7 +112,37 @@ public class Ozlympic {
 
 	private void PredictGame() {
 		// TODO Auto-generated method stub
-		
+		if(whichGame==-1){
+			System.out.println("please select a	game to	run");
+			return;
+		}
+		for(int i=0;i<games.get(whichGame).getAthletes().size();i++){
+			  System.out.println((i+1)+". "+games.get(whichGame).getAthletes().get(i).getName());
+		}
+		System.out.print("Enter an option(select a athlete):");
+		while(true){
+			int i=sc.nextInt();//select a athlete
+			if(i>=1&&i<=games.get(whichGame).getAthletes().size()){
+				i-=1;
+				while(true){
+					System.out.print("select a rank:");
+					int rank=sc.nextInt();//select a rank
+					if(rank>=1&&rank<=games.get(whichGame).getAthletes().size()){
+						rank-=1;
+						user.prediction(games.get(whichGame), games.get(whichGame).getAthletes().get(i).getID(), rank);
+						break;
+					}
+					else{
+						System.out.println("Invalid input");
+					}
+				}
+				 
+				  break;
+			}
+			else{
+				System.out.println("Invalid input");
+			}
+		}
 	}
 
 	private void selectGame() {
@@ -131,8 +164,71 @@ public class Ozlympic {
 		}
 	}
 
-	private void readFile(String string) {
+	private void readFile(String fileName) {
 		// TODO Auto-generated method stub
-		
+		FileReader fileReader=null;
+	    BufferedReader bufferedReader=null;
+        File file = new File(fileName);
+        try {
+        	fileReader = new FileReader(file);
+        	bufferedReader = new BufferedReader(fileReader);
+            String s;
+          
+            while ((s=bufferedReader.readLine())!=null){
+            	String[] line = s.split("\\s+");
+                Game g=null;
+                //judge the type of the game
+                if(line[1].equals("1")){
+                	g=new Running(line[0]);
+                }
+                else if(line[1].equals("2")){
+                	g=new Swimming(line[0]);
+                }
+                else if(line[1].equals("3")){
+                	g=new Cycling(line[0]);
+                }
+                int alCount=Integer.valueOf(line[2]);
+                s=bufferedReader.readLine();
+                line = s.split("\\s+");
+                g.setOffical(new Officials(line[0],line[1],line[2],line[3]));
+                for(int i=0;i<alCount;i++){
+                	  s=bufferedReader.readLine();
+                      line = s.split("\\s+");
+                      Athletes a=null;
+                    //judge the type of the athlete
+                      if(line[4].equals("1")){
+                    	  a=new runner(line[0],line[1],line[2],line[3]);
+                      }
+                      else if(line[4].equals("2")){
+                    	  a=new swimmers(line[0],line[1],line[2],line[3]);
+                      }
+                      else if(line[4].equals("3")){
+                    	  a=new bicyclist(line[0],line[1],line[2],line[3]);
+                      }
+                      else{
+                    	  a=new superAthletes(line[0],line[1],line[2],line[3]);
+                      }
+                      allAthletes.add(a);
+                      g.getAthletes().add(a);
+                }
+                games.add(g);
+            }
+          
+            	
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally{
+    			try {
+    				if(bufferedReader!=null)
+    					   bufferedReader.close();
+    				if(fileReader!=null)
+    					   fileReader.close();
+    			} catch (Exception e) {
+    				// TODO Auto-generated catch block
+    				e.printStackTrace();
+    			}
+            
+        }
 	}
 }

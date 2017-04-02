@@ -8,13 +8,13 @@ import java.util.List;
 public abstract class Athletes implements Comparable<Athletes> {
 	protected String ID;
 	protected String name;
-	private int age;
+	private String age;
 	private String state;
 	private int points;
 	protected int time;
 
 	
-	public Athletes(String ID, String name, int age, String state) {
+	public Athletes(String ID, String name, String age, String state) {
 		this.ID=ID;
 		this.name=name;
 		this.age=age;
@@ -40,11 +40,11 @@ public abstract class Athletes implements Comparable<Athletes> {
 		this.name=name;
 	}
 	
-	public int getAge(){
+	public String getAge(){
 		return age;
 	}
 	
-	public void setAge(int age) {
+	public void setAge(String age) {
 		this.age = age;
 	}
 	
@@ -80,7 +80,7 @@ public abstract class Athletes implements Comparable<Athletes> {
 }
 
 class swimmers extends Athletes implements Swim{
-	public swimmers(String ID, String name, int age, String state) {
+	public swimmers(String ID, String name, String age, String state) {
 		super(ID, name, age, state);
 		// TODO Auto-generated constructor stub
 	}
@@ -111,7 +111,7 @@ class swimmers extends Athletes implements Swim{
 }
 
 class bicyclist extends Athletes implements Cycle{
-	public bicyclist(String ID, String name, int age, String state) {
+	public bicyclist(String ID, String name, String age, String state) {
 		super(ID, name, age, state);
 		// TODO Auto-generated constructor stub
 	}
@@ -124,8 +124,8 @@ class bicyclist extends Athletes implements Cycle{
    public void cycling(){
    	System.out.println("Athlete"+ID+" "+name+" cycling  time="+time);
    }
-@Override
-public int compareTo(Athletes o) {
+   	@Override
+   	public int compareTo(Athletes o) {
 	// TODO Auto-generated method stub
 	if(time>o.time){
 		return 1;
@@ -139,7 +139,7 @@ public int compareTo(Athletes o) {
 }
 
 class runner extends Athletes implements Run{
-	public runner(String ID, String name, int age, String state) {
+	public runner(String ID, String name, String age, String state) {
 		super(ID, name, age, state);
 		// TODO Auto-generated constructor stub
 	}
@@ -151,8 +151,8 @@ class runner extends Athletes implements Run{
    public void running(){
    	  System.out.println("Athlete"+ID+" "+name+" running  time="+time);
    }
-@Override
-public int compareTo(Athletes o) {
+   	@Override
+   	public int compareTo(Athletes o) {
 	// TODO Auto-generated method stub
 	if(time>o.time){
 		return 1;
@@ -166,7 +166,7 @@ public int compareTo(Athletes o) {
 }
 
 class superAthletes extends Athletes implements Swim,Run,Cycle{
-	public superAthletes(String ID, String name, int age, String state) {
+	public superAthletes(String ID, String name, String age, String state) {
 		super(ID, name, age, state);
 		// TODO Auto-generated constructor stub
 	}
@@ -188,6 +188,7 @@ class superAthletes extends Athletes implements Swim,Run,Cycle{
 			cycling();
 		}
 	}
+	
 	public void swimming(){
 		System.out.println("Athlete"+ID+" "+name+" swimming  time="+time);
 	}
