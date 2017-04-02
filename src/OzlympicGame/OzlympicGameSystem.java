@@ -11,12 +11,13 @@ public class OzlympicGameSystem {
 	private int whichGame;//the game selected
 	private User user; //the user that predict the game
 
-	public void Ozlympic(Scanner sc){
+	public OzlympicGameSystem(Scanner sc){
 		games=new ArrayList<Game>();
 		allAthletes=new ArrayList<Athletes>();
 		this.sc=sc;
 		whichGame=-1;
 		user=new User();
+		
 	}
 	
 	//print the menu
@@ -33,14 +34,7 @@ public class OzlympicGameSystem {
 		System.out.print("Enter an option:");
 	}
 	
-	public OzlympicGameSystem(Scanner sc){
-		games=new ArrayList<Game>();
-		allAthletes=new ArrayList<Athletes>();
-		this.sc=sc;
-		whichGame=-1;
-		user=new User();
-		
-	}
+	
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
 		OzlympicGameSystem op=new OzlympicGameSystem(sc);
