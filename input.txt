@@ -1,0 +1,22 @@
+R01 1 6
+01 Jack 20 American
+02 Tom 21 New Zealand  1
+03 Alexander 22 Singapore 4
+04 Christopher 20 England 1
+05 Nelson 21 Canada 1
+06 Samuel 20 Australia 1
+07 LiuXiang 24 China 4
+S02 2 5
+08 Ewan 20 Russia 
+09 Natalie 21 Brazil 2
+10 Pernilla 22 Mexico 2
+11 Brian 20 France 4
+12 Anthony 21 Canada 2
+13 Liam 20 Germany 2
+C02 3 5
+14 Frank 20 Cameroon 
+15 Terence 21 Argentina 3
+16 Sofia 22 Chile 3
+17 Davis 20 Cameroon 3
+18 Austen 21 Turkey 4
+19 Portman 20 India 3
