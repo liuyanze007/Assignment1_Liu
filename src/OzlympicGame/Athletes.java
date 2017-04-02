@@ -48,7 +48,7 @@ public abstract class Athletes implements Comparable<Athletes> {
 		this.age = age;
 	}
 	
-	public String state(){
+	public String getState(){
 		return state;
 	}
 	

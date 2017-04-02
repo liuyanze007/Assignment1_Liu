@@ -68,21 +68,43 @@ public class Ozlympic {
 		
 }
 
-	private void displayAllAthlete() {
+	private void displayAllAthlete() {        		//Display the points of all athletes
 		// TODO Auto-generated method stub
-		
-		
+		System.out.format("%-15s%-15s%-8s\n","Name","State","Ponits");
+		System.out.println("");
+		for(Athletes a:allAthletes){
+			System.out.format("%-15s%-15s%-8s\n",a.getName(),a.getState(),a.getPoints());
+		}
 		
 	}
 
-	private void displayGameResult() {
+	private void displayGameResult() {              //Display the final results of all games
 		// TODO Auto-generated method stub
-		
+		for(int i=0;i<games.size();i++){
+			  System.out.println("");
+			  System.out.println((i+1)+". "+games.get(i).getGID());
+			  System.out.format("  %-15s%-8s\n","Name","Time");
+			  for(int j=0;j<games.get(i).getAthletes().size();j++){
+				   Athletes a=games.get(i).getAthletes().get(j);
+				   System.out.format("  %-15s%-8s\n",a.getName(),a.getTime());
+					
+				} 
+		}
 	}
 
 	private void startGame() {
 		// TODO Auto-generated method stub
-		
+		if(whichGame==-1){
+			System.out.println("please select a	game to	run");
+			return;
+		}
+		games.get(whichGame).show();
+		//each athlete plays
+		for(int i=0;i<games.get(whichGame).getAthletes().size();i++){
+			games.get(whichGame).getAthletes().get(i).compete(games.get(whichGame).getType());
+		}
+		games.get(whichGame).getOffical().summarise(games.get(whichGame).getAthletes());
+		user.check(games.get(whichGame));
 	}
 
 	private void PredictGame() {
