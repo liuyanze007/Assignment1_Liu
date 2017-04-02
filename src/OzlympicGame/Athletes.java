@@ -3,17 +3,25 @@ package OzlympicGame;
 import java.util.Collections;
 import java.util.List;
 
-public abstract class People {
+
+
+public abstract class Athletes implements Comparable<Athletes> {
 	protected String ID;
 	protected String name;
-	protected int age;
-	protected String state;
+	private int age;
+	private String state;
+	private int points;
+	protected int time;
 
-	public People(String ID, String name, int age, String state){
+	
+	public Athletes(String ID, String name, int age, String state) {
 		this.ID=ID;
 		this.name=name;
 		this.age=age;
 		this.state=state;
+		this.points=0;
+		this.time=0;
+		// TODO Auto-generated constructor stub
 	}
 	
 	public String getID(){
@@ -48,18 +56,6 @@ public abstract class People {
 		this.state=state;
 	}
 	
-}
-
-abstract class Athletes extends People implements Comparable<Athletes> {
-	private int points;
-	protected int time;
-	
-	public Athletes(String ID, String name, int age, String state) {
-		super(ID, name, age, state);
-		this.points=0;
-		this.time=0;
-		// TODO Auto-generated constructor stub
-	}
 	public void addPoints(int p){
 		this.points+=p;
 	}
@@ -79,7 +75,7 @@ abstract class Athletes extends People implements Comparable<Athletes> {
 		this.time = time;
 	}
 	
-	abstract void compete(int type);
+	abstract void compete(int type); //set a method for every subclass 
 	
 }
 
